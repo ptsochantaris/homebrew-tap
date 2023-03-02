@@ -12,18 +12,18 @@ class TrailerCli < Formula
 
   def install
     args = "swift", "build",
+           "--disable-sandbox",
            "-c", "release",
            "--arch", "arm64",
            "--arch", "x86_64",
            "-Xswiftc", "-O",
            "-Xswiftc", "-Ounchecked",
            "-Xswiftc", "-whole-module-optimization",
-           "-Xswiftc", "-enforce-exclusivity=unchecked",
-           "--scratch-path", buildpath.to_s
+           "-Xswiftc", "-enforce-exclusivity=unchecked"
 
     system(*args)
 
-    bin.install ".build/apple/Products/Release/trailer"
+    bin.install buildpath/".build/apple/Products/Release/trailer"
   end
 
   test do
