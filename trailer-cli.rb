@@ -5,10 +5,10 @@
 class TrailerCli < Formula
   desc "Managing Pull Requests & Issues For GitHub & GH Enterprise from the command-line"
   homepage "https://github.com/ptsochantaris/trailer-cli"
-  url "https://github.com/ptsochantaris/trailer-cli/archive/refs/tags/1.4.0.tar.gz"
-  sha256 "8936949f0d6d0d9e5e1ec7e300e2b384ab878b9ee76288bfc0a5e9791d0e391f"
+  url "https://github.com/ptsochantaris/trailer-cli/archive/refs/tags/1.6.0.tar.gz"
+  sha256 "e1b6e318cf365cbc6dd71aaface1d21f0ad1a9bc62ef8a4c9c8608136fefe1b1"
   license "MIT"
-  depends_on xcode: "14.2"
+  depends_on xcode: "16.0"
 
   def install
     args = "swift", "build",
