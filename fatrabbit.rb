@@ -5,8 +5,8 @@
 class Fatrabbit < Formula
   desc "Defragment a FAT12, FAT16 or FAT32 volume in place"
   homepage "https://github.com/ptsochantaris/fatrabbit"
-  url "https://github.com/ptsochantaris/fatrabbit/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "2e31612f3591efbc3cc5b14c78fba09491e940fa403a4d594c3434802c6fb88d"
+  url "https://github.com/ptsochantaris/fatrabbit/archive/refs/tags/1.0.1.tar.gz"
+  sha256 "db03d3a8012ffcf44b4b50ffe0cd2c5ab1d73f5d63bd5f21fcfe515f45ba4757"
   license "MIT"
   head "https://github.com/ptsochantaris/fatrabbit.git", branch: "main"
 
