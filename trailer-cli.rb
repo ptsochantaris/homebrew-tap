@@ -6,7 +6,7 @@ class TrailerCli < Formula
   desc "Managing Pull Requests & Issues For GitHub & GH Enterprise from the command-line"
   homepage "https://github.com/ptsochantaris/trailer-cli"
   url "https://github.com/ptsochantaris/trailer-cli/archive/refs/tags/1.7.0.tar.gz"
-  sha256 "8675311084eb3ad2d215f83f8cb0be6d092767e5d81ab8507f1575262d47f8db"
+  sha256 "0e475a3e6bd9cb452fc4f9af60a0d51f69848afadf8e4fca3eb0b5e0a1cf95d7"
   license "MIT"
   depends_on xcode: "27.0"
 
