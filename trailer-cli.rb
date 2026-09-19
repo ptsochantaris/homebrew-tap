@@ -5,28 +5,26 @@
 class TrailerCli < Formula
   desc "Managing Pull Requests & Issues For GitHub & GH Enterprise from the command-line"
   homepage "https://github.com/ptsochantaris/trailer-cli"
-  url "https://github.com/ptsochantaris/trailer-cli/archive/refs/tags/1.6.0.tar.gz"
-  sha256 "e1b6e318cf365cbc6dd71aaface1d21f0ad1a9bc62ef8a4c9c8608136fefe1b1"
+  url "https://github.com/ptsochantaris/trailer-cli/archive/refs/tags/1.7.0.tar.gz"
+  sha256 "8675311084eb3ad2d215f83f8cb0be6d092767e5d81ab8507f1575262d47f8db"
   license "MIT"
-  depends_on xcode: "16.0"
+  depends_on xcode: "27.0"
 
   def install
-    args = "swift", "build",
-           "--disable-sandbox",
-           "-c", "release",
-           "--arch", "arm64",
-           "--arch", "x86_64",
-           "-Xswiftc", "-O",
-           "-Xswiftc", "-Ounchecked",
-           "-Xswiftc", "-whole-module-optimization",
-           "-Xswiftc", "-enforce-exclusivity=unchecked"
+    args = ["--disable-sandbox",
+            "-c", "release",
+            "-Xswiftc", "-Ounchecked",
+            "-Xswiftc", "-enforce-exclusivity=unchecked"]
 
-    system(*args)
+    system "swift", "build", *args
 
-    bin.install buildpath/".build/apple/Products/Release/trailer"
+    # SwiftPM has moved its output directory between releases, so ask it where the
+    # binary landed instead of hardcoding the path.
+    bin_path = Utils.safe_popen_read("swift", "build", *args, "--show-bin-path").strip
+    bin.install "#{bin_path}/trailer"
   end
 
   test do
-    system "false"
+    assert_match "Usage: trailer", shell_output("#{bin}/trailer", 1)
   end
 end
